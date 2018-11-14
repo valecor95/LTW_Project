@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Login MultimediaSite</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="signin.css" rel="stylesheet"/>
+        <style type="text/css">
+            #sfondo {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
+        </style>
+        <script type="text/javascript" lang="javascript" src="../js/bootstrap.min.js"></script>
+        <script type="text/javascript" lang="javascript" src="loginScript.js"></script>
+    </head>
+    <body class="text-center">
+        <div id="sfondoarco">
+            <img src="../immagini/index.jpeg" id = "sfondo">
+        </div>
+        <form action="../video.html" class="form-signin" method="POST" name="myForm" onSubmit="return validaForm()">
+            <img class="mb-3" src="../immagini/Sport_records_icon_MS.svg.png" alt="" width="130" height="130"/>
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/>
+            <input type="password" name="inputPassword" class="form-control" placeholder="Password" required/>
+            <div id="divCap" class="text-center">
+                <label for="cap">Inserisci il CAP di provenienza:</label>
+                <input type="text" name="cap" size="5" maxlength="5" onChange="return controllaCAP()"/>
+            </div>
+            <div id="divRemember" class="checkbox mb-3">
+                <input type="checkbox" name="remember"/>
+                <label for="remember">Remember me</label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </body>
+</html>
