@@ -2,7 +2,7 @@
 /*                          FUNZIONI PER LA GESTIONE DEL LOGIN                               */
 /*********************************************************************************************/
 
-/** Esegue tutti i controlli prima di validare la LOGIN form **/
+/** Esegue tutti i controlli prima di validare la LOGIN form. Viene eseguita al submit **/
 function validaLoginForm(){
     if(document.login.remember.checked)
         window.alert("Hai scelto di ricordarti per i prossimi accessi");
@@ -23,7 +23,7 @@ function turnvisible(){
 /*                          FUNZIONI PER LA GESTIONE DEL SIGN UP                             */
 /*********************************************************************************************/
 
-/** Esegue tutti i controlli prima di validare la SIGN-UP form **/
+/** Esegue tutti i controlli prima di validare la SIGN-UP form. Viene eseguita al submit **/
 function validaSignUpForm(){
     if(controllaCAP() && controllaPass()){
         document.signup.reset();
@@ -33,7 +33,8 @@ function validaSignUpForm(){
         return false 
 }
 
-/** Controlla che effettivamente il CAP sia un numero di 5 cifre **/
+/** Controlla che effettivamente il CAP sia un numero di 5 cifre quando l'utente 
+cambia il valore del campo CAP (in onChange)**/
 function controllaCAP() {
     if (document.signup.cap.value.length!=5) {
         alert("Il CAP deve contenere 5 cifre");
@@ -47,7 +48,8 @@ function controllaCAP() {
     return true;
 }
 
-/** Controlla che i campi password e confirm password abbiano lo stesso valore **/
+/** Controlla che i campi password e confirm password abbiano lo stesso valore quando 
+l'utente cambia il valore all'interno del campo Confirm Password (in onChange) **/
 function controllaPass() {
     if (document.signup.inputConfPassword.value != document.signup.inputPassword.value) {
         alert("Password non corrispondenti");
