@@ -14,10 +14,10 @@
     </head>
     <body class="text-center">
         <div id="sfondoarco">
-            <img src="../immagini/sfondo2.jpg" id = "sfondo">
+            <img src="../immagini/index.jpeg" id = "sfondo">
         </div>
         <div id="accesso"  name="principale"  >
-            <form action="../video.html" class="form-signin" method="POST" name="login" onSubmit="return validaLoginForm()">
+            <form action="" class="form-signin" method="POST" name="login" onSubmit="return validaLoginForm()">
                 <img class="mb-3" src="../immagini/Sport_records_icon_MS.svg.png" alt="" width="150" height="130"/>
                 <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
                 <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/>
@@ -30,8 +30,8 @@
                 <button class="btn btn-lg btn-success btn-block" type="button" onclick="turnvisible();">Sign up</button>
             </form>
         </div>
-        <div id="registrazione"  name="principale"  >
-            <form action="../video.html" class="form-signup" method="POST" name="signup" onSubmit="return validaSignUpForm()">
+        <div id="registrazione"  name="principale">
+            <form action="" class="form-signup" method="POST" name="signup" onSubmit="return validaSignUpForm()">
                 <img class="mb-3" src="../immagini/Sport_records_icon_MS.svg.png" alt="" width="150" height="130"/>
                 <h1 class="h3 mb-3 font-weight-normal">Sign Up in MS</h1>
                 <div id="divInfoBase" class="text-left font-weight-bold">
@@ -45,8 +45,8 @@
                     <label for="cap">Data di nascita:</label>
                     <input type="date" name="inputDdn" class="form-control">                
                 </div><br>
-                <div id="divCap" class="text-left font-weight-bold">
-                    <label for="cap">CAP di provenienza:</label>
+                <div id="divCap" class="text-center font-weight-bold">
+                    <label for="cap">CAP:</label>
                     <input type="text" class="form-control-sm" name="cap" size="5" maxlength="5" onChange="return controllaCAP()"/>
                 </div><br>
                 <div id="divImage" class="form-group text-left font-weight-bold">

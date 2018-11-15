@@ -26,11 +26,11 @@ function turnvisible(){
 /** Esegue tutti i controlli prima di validare la SIGN-UP form. Viene eseguita al submit **/
 function validaSignUpForm(){
     if(controllaCAP() && controllaPass()){
-        document.signup.reset();
+        //document.signup.reset(); quando si fa la submit i campi si svuotano automaticamente
         return true; 
     }
     else 
-        return false 
+        return false; 
 }
 
 /** Controlla che effettivamente il CAP sia un numero di 5 cifre quando l'utente 
