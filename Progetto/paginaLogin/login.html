@@ -5,31 +5,58 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link href="../css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="signin.css" rel="stylesheet"/>
+        <link href="login.css" rel="stylesheet"/>
         <style type="text/css">
             #sfondo {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
         </style>
         <script type="text/javascript" lang="javascript" src="../js/bootstrap.min.js"></script>
-        <script type="text/javascript" lang="javascript" src="loginScript.js"></script>
+        <script type="text/javascript" lang="javascript" src="login.js"></script>
     </head>
     <body class="text-center">
         <div id="sfondoarco">
-            <img src="../immagini/index.jpeg" id = "sfondo">
+            <img src="../immagini/sfondo2.jpg" id = "sfondo">
         </div>
-        <form action="../video.html" class="form-signin" method="POST" name="myForm" onSubmit="return validaForm()">
-            <img class="mb-3" src="../immagini/Sport_records_icon_MS.svg.png" alt="" width="130" height="130"/>
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/>
-            <input type="password" name="inputPassword" class="form-control" placeholder="Password" required/>
-            <div id="divCap" class="text-center">
-                <label for="cap">Inserisci il CAP di provenienza:</label>
-                <input type="text" name="cap" size="5" maxlength="5" onChange="return controllaCAP()"/>
-            </div>
-            <div id="divRemember" class="checkbox mb-3">
-                <input type="checkbox" name="remember"/>
-                <label for="remember">Remember me</label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </form>
+        <div id="accesso"  name="principale"  >
+            <form action="../video.html" class="form-signin" method="POST" name="login" onSubmit="return validaLoginForm()">
+                <img class="mb-3" src="../immagini/Sport_records_icon_MS.svg.png" alt="" width="150" height="130"/>
+                <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+                <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/>
+                <input  type="password" name="inputPassword" class="form-control" placeholder="Password" required/>
+                <div id="divRemember" class="checkbox mb-3">
+                    <input type="checkbox" name="remember"/>
+                    <label for="remember">Remember me</label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <button class="btn btn-lg btn-success btn-block" type="button" onclick="turnvisible();">Sign up</button>
+            </form>
+        </div>
+        <div id="registrazione"  name="principale"  >
+            <form action="../video.html" class="form-signup" method="POST" name="signup" onSubmit="return validaSignUpForm()">
+                <img class="mb-3" src="../immagini/Sport_records_icon_MS.svg.png" alt="" width="150" height="130"/>
+                <h1 class="h3 mb-3 font-weight-normal">Sign Up in MS</h1>
+                <div id="divInfoBase" class="text-left font-weight-bold">
+                    <label for="cap">Informazioni di base:</label>
+                    <input type="text" name="inputNickname" class="form-control" placeholder="NickName" required autofocus/>
+                    <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/>
+                    <input type="password" name="inputPassword" class="form-control" placeholder="Password" minlength="8" required/>
+                    <input type="password" name="inputConfPassword" class="form-control" placeholder="Confirm Password" onChange="return controllaPass()" required/>
+                </div><br>
+                <div id="divDdn" class="text-left font-weight-bold">
+                    <label for="cap">Data di nascita:</label>
+                    <input type="date" name="inputDdn" class="form-control">                
+                </div><br>
+                <div id="divCap" class="text-left font-weight-bold">
+                    <label for="cap">CAP di provenienza:</label>
+                    <input type="text" name="cap" size="5" maxlength="5" onChange="return controllaCAP()"/>
+                </div><br>
+                <div id="divImage" class="form-group text-left font-weight-bold">
+                    <label for="inputFile">Select an account Image:</label>
+                    <input type="file" id="inputFile">                  
+                </div><br>
+                <button class="btn btn-sm btn-standard btn-block" type="reset">Reset dati inseriti</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+                <button class="btn btn-lg btn-success btn-block" type="button" onclick="turninvisible();">Go back</button>
+            </form>
+        </div>
     </body>
 </html>
