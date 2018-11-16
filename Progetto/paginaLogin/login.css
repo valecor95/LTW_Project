@@ -1,13 +1,5 @@
 html,
 
-/** Rende non selezionabile la pagina **/
-#sfondo{
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 /** Stili di default **/
 body {
   height: 100%;
@@ -20,6 +12,14 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+/** Rende non selezionabile lo sfondo della pagina **/
+#sfondo{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /** Stili per la form di Sign-in **/
