@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Youtube Ajax</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <script src="../js/bootstrap.min.jQuery.js"></script>
+  <link rel="stylesheet" href="../js/bootstrap.min.ajax.js" />
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="GestioneVideo.js"></script>
+  <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="ex.css" rel="stylesheet"/>
+  <style type="text/css">
+    #sfondo {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
+</style>
+  <script>
+    
+      // 2. questo è il pezzo di codice che carica IFrame Player API in modo asincrono.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. Questa funzione crea un <iframe> (e YouTube player)
+      //    dopo il download delle api.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          playerVars: {
+            'rel': 0,
+            'loop': 1,
+          },
+          events: {
+            'onReady': null,
+            'onStateChange': null
+          }
+        });
+      }
+  </script>
+  <style>
+  #result {
+   position: absolute;
+   width: 100%;
+   max-width:870px;
+   cursor: pointer;
+   overflow-y: auto;
+   max-height: 400px;
+   box-sizing: border-box;
+   z-index: 1001;
+  }
+  .link-class:hover{
+   background-color:#f1f1f1;
+  }
+  </style>
+ </head>
+ <body>
+    <div id="sfondoarco">
+        <img src="../immagini/index.jpeg" id = "sfondo">
+    </div>
+  <br /><br />
+   <div class="container">
+   <h2 align="center">MS Search</h2>
+   <h3 align="center">Find Videos</h3>   
+   <br /><br />
+   <div align="center">
+    <input type="text" name="search" id="search" placeholder="Search Videos" class="form-control">
+    <input type="button" name="bottone" id="button1" value="cerca">
+    <div id='player'></div>
+    </div>
+   <ul class="list-group" id="results"></ul>
+   <br />
+  </div>
+ </body>
+</html>
