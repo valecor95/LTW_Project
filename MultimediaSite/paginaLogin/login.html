@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Login MultimediaSite</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="login.css" rel="stylesheet"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style type="text/css">
+            #sfondo {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
+        </style>
+        <script type="text/javascript" lang="javascript" src="../js/bootstrap.min.js"></script>
+        <script type="text/javascript" lang="javascript" src="login.js"></script>
+    </head>
+    <body class="text-center">
+        <!--Immagine di sfondo-->
+        <div id="sfondoarco">
+            <img src="../immagini/index.jpeg" id = "sfondo">
+        </div>
+
+        <!--Form per il Sign In-->
+        <div id="accesso"  name="principale"  class="row">
+            <div class="col-md-12 col-md-offset-3">
+                <form action="" class="form-signin" method="POST" name="login" onSubmit="return validaLoginForm()">
+                    <img class="mb-3" src="../immagini/mslogo.png" alt="" width="auto" height="130"/>
+                    <font><label class="h2 mb-3 font-weight-bold">Please Sign In</label></font>
+                    <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/>
+                    <input  type="password" name="inputPassword" class="form-control" placeholder="Password" required/>
+                    <div id="divRemember" class="checkbox mb-3">
+                        <input type="checkbox" name="remember"/>
+                        <font><label for="remember">Remember me</label></font>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    <button class="btn btn-lg btn-success btn-block" type="button" onclick="turnvisible();">Sign up</button>
+                </form>
+            </div>
+        </div>
+
+        <!--Form per il Sign Up-->
+        <div id="registrazione"  name="principale" class="row">
+            <div class="col-md-12 col-md-offset-3">
+                <form action="" class="form-signup" method="POST" name="signup" onSubmit="return validaSignUpForm()">
+                    <img class="mb-3" src="../immagini/mslogo.png" alt="" width="auto" height="130"/>
+                    <font><label class="w100 h2 mb-3 font-weight-bold">Registrati</label></font>
+                    <div id="divInfoBase" class="text-left font-weight-bold">
+                        <font><label for="cap">Informazioni di base:</label></font>
+                        <input type="text" name="inputNickname" class="form-control" placeholder="NickName" required autofocus/>
+                        <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/>
+                        <input type="password" name="inputPassword" class="form-control" placeholder="Password" minlength="8" required/>
+                        <input type="password" name="inputConfPassword" class="form-control" placeholder="Confirm Password" onChange="return controllaPass()" required/>
+                    </div><br>
+                    <div id="divDdn" class="text-left font-weight-bold">
+                        <font><label for="cap">Data di nascita:</label></font>
+                        <input type="date" name="inputDdn" class="form-control">                
+                    </div><br>
+                    <div id="divCap" class="text-left font-weight-bold">
+                        <font><label for="cap">CAP:</label></font>
+                        <input type="text" class="form-control-sm" name="cap" size="5" maxlength="5" onChange="return controllaCAP()"/>
+                    </div><br>
+                    <button class="btn btn-sm btn-standard btn-block" type="reset">Reset dati inseriti</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+                    <button class="btn btn-lg btn-success btn-block" type="button" onclick="turninvisible();">Go back</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
