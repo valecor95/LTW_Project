@@ -26,9 +26,11 @@ body {
 div#testo-header{
     width: 800px;
     height: 200px;
+    width: 70%;
+    height: 70%;
     position: absolute;
     top: 20%;
-    left: 33.0%;
+    left: 20%;
     margin-top: -100px;
     margin-left: -100px;
 }
@@ -36,9 +38,11 @@ div#testo-header{
 div#imgsx{
     width: 800px;
     height: 200px;
+    width: 46.5%;
+    height: 46.5%;
     position: absolute;
-    top: 55%;
-    left: 8%;
+    top: 49.7%;
+    left: 5.5%;
     margin-top: -100px;
     margin-left: -100px;
 }
@@ -46,9 +50,11 @@ div#imgsx{
 div#imgdx{
     width: 800px;
     height: 200px;
+    width: 40%;
+    height: 40%;
     position: absolute;
-    top: 48%;
-    left: 60%;
+    top: 49.5%;
+    right: 4%;
     margin-top: -100px;
     margin-left: -100px;
 }

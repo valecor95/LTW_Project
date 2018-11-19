@@ -9,11 +9,10 @@ $(document).ready(function(){
                     type: 'GET',
                     url: "https://www.googleapis.com/youtube/v3/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1",
                     dataType: 'jsonp',
-                    data: jQuery.extend({q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"), maxResults: maxres, category: 'movie', part: 'snippet', key: APIkey}, { }),
+                    data: jQuery.extend({q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"), maxResults: maxres, part: 'snippet', key: APIkey}, { }),
                     success: function(data){
                         $(".list-group").empty();
                         for(var i = 0; i < maxres; i++){
-                            console.log(data.items[i]);
                             $("<li>" + data.items[i].snippet.title + "" + "<input type='button' id=" + data.items[i].id.videoId + " value='Guarda!' onclick='return PlayVideo(this.id);'>"  + "</li>").appendTo("#results");
                         }
                     },
@@ -31,5 +30,9 @@ function PlayVideo(id){
             startSeconds:0,
             endSeconds: '',
             suggestedQuality: 'small'});
+}
+
+function RefreshSearch(){
+    $(".list-group").empty();
 }
 
