@@ -1,6 +1,6 @@
 
 var APIkey = 'AIzaSyDGIo6ylsqkLqOt1skx2gjOeLI57DPaFz8';   //cambia con la tua api
-var maxres = 15;
+var maxres = 7;
 var videos = null;
 
 $(document).ready(function(){
@@ -29,7 +29,7 @@ function PlayVideo(id){
     player.loadVideoById({videoId: videoID,
             startSeconds:0,
             endSeconds: '',
-            suggestedQuality: 'small'});
+            suggestedQuality: 'medium'});
 }
 
 function RefreshSearch(){

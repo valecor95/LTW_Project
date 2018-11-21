@@ -1,0 +1,35 @@
+html,
+
+/** Stili di default **/
+body {
+  height: 100%;
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#player{
+  display: none;
+}
+
+#result{
+  position: absolute;
+  width: 100%;
+  max-width:870px;
+  cursor: pointer;
+  overflow-y: auto;
+  max-height: 400px;
+  box-sizing: border-box;
+  z-index: 1001;
+ }
+ .link-class:hover{
+  background-color:#f1f1f1;
+ }
+ 
+
