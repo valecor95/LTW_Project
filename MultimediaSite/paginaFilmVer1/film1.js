@@ -4,12 +4,19 @@ var maxres = 7;
 var videos = null;
 
 $(document).ready(function(){
+    $.get("../objects/barra.html", function(data) {
+        $("#barra").append(data);
+    });
     $('#button1').click(function(){
         jQuery.ajax({
                     type: 'GET',
                     url: "https://www.googleapis.com/youtube/v3/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1",
                     dataType: 'jsonp',
-                    data: jQuery.extend({q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"), maxResults: maxres, part: 'snippet', key: APIkey}, { }),
+                    data: jQuery.extend({
+                        q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"), 
+                        maxResults: maxres, 
+                        part: 'snippet', 
+                        key: APIkey}, { }),
                     success: function(data){
                         $(".list-group").empty();
                         for(var i = 0; i < maxres; i++){
@@ -24,15 +31,18 @@ $(document).ready(function(){
 });
         
 function PlayVideo(id){
+    $('#myModal').modal("show");
     $('#player').css('display','block');
     var videoID=id;
     player.loadVideoById({videoId: videoID,
-            startSeconds:0,
-            endSeconds: '',
-            suggestedQuality: 'medium'});
+        startSeconds:0,
+        endSeconds: '',
+        suggestedQuality: 'medium'});
 }
 
 function RefreshSearch(){
     $(".list-group").empty();
 }
+
+
 
