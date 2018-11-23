@@ -1,0 +1,62 @@
+<html>
+    <head>
+    <title>MultimediaSite Home</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="home.css" rel="stylesheet"/>
+    <style type="text/css">
+        #sfondo {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
+    </style>
+    <script src="home.js"></script>
+    <script type="text/javascript" lang="javascript" src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.jQuery.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $.get("../objects/barra.html", function(data) {
+            $("#barra").append(data);
+        });
+    });
+    </script>
+    </head>
+    <body class="text-center">
+        <!--Codice per lo SFONDO-->
+        <div id="sfondoarco">
+            <img src="../immagini/index.jpeg" id = "sfondo">
+        </div>
+
+        <!--NAVBAR-->
+        <div id="barra"></div>
+
+        <!--LOGO E TESTO DI BENVENUTO-->
+        <div id="testo-header" name="Index" class="row">
+            <div class="col-md-12">
+                <img src="../immagini/mslogo.png" width="100" height="100">
+                <font color="white" size="7">
+                <h1 class="font-weight-bold">MultimediaSite</h1>
+                <font size="5" face="Helvetica">
+                <p>Vuoi ascoltare una canzone o guardare un film?</p>
+                </font>
+                </font>
+            </div>
+        </div>
+
+        <!--IMMAGINI-->
+        <div id="ImgZone" name="ImgZone" class="row">
+            <div id="imgsx" class="col-md-6">
+                <a href="../paginaFilmVer2/film2.html">
+                    <font color="#254061" size="5"><h1 class="font-weight-bold">Movies</h1></font>
+                    <img class="rounded-circle" src="../immagini/My-movies-icon.png">
+                </a>
+            </div>
+            <div id="imgdx" class="col-md-6">
+                <a href="#">
+                    <font color="#254061" size="5"><h1 class="font-weight-bold">Songs</h1></font>
+                    <img class="rounded-circle" src="../immagini/My-music-icon.png">
+                </a>
+            </div>
+        </div>
+    </body>
+</html>

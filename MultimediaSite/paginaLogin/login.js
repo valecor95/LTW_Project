@@ -2,9 +2,29 @@
 /*                          FUNZIONI PER LA GESTIONE DEL LOGIN                               */
 /*********************************************************************************************/
 
+/** Funzione che gestisce lo storage degli utenti che effettuano il login. 
+ *  1) Prende i dati dall'input
+ *  2) Controlla che siano presenti nel localStorage
+ *  3) Inserisce l'utente loggato nel sessionStorage **/
+function signin(){
+    var u = JSON.parse(localStorage.utenti);
+    var l = u.length;
+    var email = document.getElementById("login").inputEmail.value;
+    var password = document.getElementById("login").inputPassword.value;
+    for (i=0;i<l;i++){
+        if((u[i].email == email) && (u[i].password == password)) {
+            sessionStorage.setItem("email",u[i].email);
+            validaLoginForm();
+            return true;
+        }
+    }
+    alert("Utente non registrato");
+    return false;
+}
+
 /** Esegue tutti i controlli prima di validare la LOGIN form. Viene eseguita al submit **/
 function validaLoginForm(){
-    if(document.login.remember.checked)
+    if(document.formlogin.remember.checked)
         window.alert("Hai scelto di ricordarti per i prossimi accessi");
     else
         window.alert("Hai scelto di non ricordarti per i prossimi accessi");
@@ -25,22 +45,18 @@ function turnvisible(){
 
 /** Esegue tutti i controlli prima di validare la SIGN-UP form. Viene eseguita al submit **/
 function validaSignUpForm(){
-    if(controllaCAP() && controllaPass()){
-        //document.signup.reset(); quando si fa la submit i campi si svuotano automaticamente
-        return true; 
-    }
-    else 
-        return false; 
+    if(controllaCAP() && controllaPass()) return true; 
+    else return false; 
 }
 
 /** Controlla che effettivamente il CAP sia un numero di 5 cifre quando l'utente 
 cambia il valore del campo CAP (in onChange)**/
 function controllaCAP() {
-    if (document.signup.cap.value.length!=5) {
+    if (document.formsignup.cap.value.length!=5) {
         alert("Il CAP deve contenere 5 cifre");
         return false;
     }
-    var v=parseInt(document.signup.cap.value);
+    var v=parseInt(document.formsignup.cap.value);
     if (isNaN(v)) {
         alert("Il CAP deve essere un numero");
         return false;
@@ -51,7 +67,7 @@ function controllaCAP() {
 /** Controlla che i campi password e confirm password abbiano lo stesso valore quando 
 l'utente cambia il valore all'interno del campo Confirm Password (in onChange) **/
 function controllaPass() {
-    if (document.signup.inputConfPassword.value != document.signup.inputPassword.value) {
+    if (document.formsignup.inputConfPassword.value != document.formsignup.inputPassword.value) {
         alert("Password non corrispondenti");
         return false;
     }
@@ -64,4 +80,39 @@ function turninvisible(){
     var signIn_form=document.getElementById("accesso");
     signIn_form.style.display="block";
     signUp_form.style.display="none";
+}
+
+/** Funzione che gestisce lo storage degli utenti che si registrano. 
+ *  1) Controlla che l'username inserito non sia già presente 
+ *  2) Crea un nuovo oggetto JSON con i dati ricevuti dall'input
+ *  3) Inserisce l'oggetto appena creto nel localStorage e nel sessionStorage **/
+function signup(){
+    var u = JSON.parse(localStorage.utenti);
+    var l=u.length;
+    for (i=0;i<l;i++){
+        if(u[i].nickname == document.getElementById("signup").inputNickname.value){
+            alert("Username già inserito");
+            return false;
+        }
+    }
+
+    var s= { nickname:document.getElementById("signup").inputNickname.value,
+            email:document.getElementById("signup").inputEmail.value,
+            password:document.getElementById("signup").inputPassword.value
+    };
+
+    u[l]=s;
+    localStorage.utenti=JSON.stringify(u);
+    sessionStorage.setItem("email",s["email"]);
+    return true;                    
+}
+
+/** Inizializza il localStorage e il sessionStorage se non sono già stati creati**/
+function inizializzaStorageUtenti(){
+    if (typeof(localStorage.utenti) == "undefined") {
+        localStorage.utenti="[]";
+    }
+    if (typeof(sessionStorage) == "undefined") {
+        sessionStorage="[]";
+    }
 }
