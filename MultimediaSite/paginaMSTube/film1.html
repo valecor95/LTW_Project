@@ -13,33 +13,33 @@
     <style type="text/css">
         #sfondo {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
     </style>
+    
     <script>
-      
       // 2. questo è il pezzo di codice che carica IFrame Player API in modo asincrono.
-      var tag = document.createElement('script');
+        var tag = document.createElement('script');
 
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      // 3. Questa funzione crea un <iframe> (e YouTube player)
-      //    dopo il download delle api.
-      var player;
-      function onYouTubeIframeAPIReady() {
-          player = new YT.Player('player', {
-            height: '360',
-            width: '640',
-            playerVars: {
-              'rel': 0,
-              'loop': 1,
-            },
-            events: {
-              'onReady': null,
-              'onStateChange': null
-            }
-      });
-  }
-</script>
+        // 3. Questa funzione crea un <iframe> (e YouTube player)
+        //    dopo il download delle api.
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '380',
+                width: '680',
+                playerVars: {
+                    'rel': '0',
+                    'loop': '1',
+                },
+                events: {
+                    'onReady': null,
+                    'onStateChange': null
+                }
+        });
+    };
+    </script>
 </head>
 <body>
     <div id="sfondoarco">
@@ -63,24 +63,24 @@
                 <br/>
             </div>
             <input type="button" name="bottone" id="button1" value="cerca">
-            <input type="button" name="bottoneres" id="button2" value="ripulisci" onclick="return RefreshSearch();">
+            <input type="button" name="bottoneres" id="button2" value="Svuota i Risultati" onclick="return RefreshSearch();">
             </br></br>
-            <div class="col-md-6 col-md-offset-3">
-            <ul class="list-group" id="results"></ul>
+            <div class="col-md-12 col-md-offset-3" align="left">
+                <ul class="list-group" id="results"></ul>
             </div>
             <br/><br/>
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
+            <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header" align="center">
                             <button type="button" class="close col-md-1" data-dismiss="modal">&times;</button>
-                            <font color="#254061" class="col-md-11"><h4 class="modal-title font-weight-bold">YOUR VIDEO</h4></font>
+                            <font color="#254061" class="col-md-12"><h4 class="modal-title font-weight-bold">YOUR VIDEO</h4></font>
                         </div>
                         <div class="modal-body">
                             <div id='player' align="center" class="col-md-12 col-md-offset-3"></div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick = "player.stopVideo();" data-dismiss="modal">Close</button>
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->

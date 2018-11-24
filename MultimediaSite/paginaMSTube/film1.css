@@ -4,29 +4,23 @@ html,
 body {
   height: 100%;
 }
-<<<<<<< HEAD:MultimediaSite/paginaFilmVer1/paginavideo.css
 /*
 body {
-=======
-
-/*body {
->>>>>>> e5e18941aba8b15fd961c7e5ea3726b6695fa5b2:MultimediaSite/paginaFilmVer1/film1.css
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-<<<<<<< HEAD:MultimediaSite/paginaFilmVer1/paginavideo.css
 }
 */
-=======
-}*/
->>>>>>> e5e18941aba8b15fd961c7e5ea3726b6695fa5b2:MultimediaSite/paginaFilmVer1/film1.css
-
-#player{
+/*
+#player{        non serve più perche lo abbiamo inserito nel modal
   display: none;
 }
+*/
+
+li {margin: 3px; padding: 3px;}
 
 #result{
   position: absolute;
@@ -44,6 +38,3 @@ body {
  }
 
  .modal{background-color: #254061;}
- .modal-content{
-  width: auto;
-}
