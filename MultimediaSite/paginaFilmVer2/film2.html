@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>MultimediaSite Search Film</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+        <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="film2.css" rel="stylesheet"/>
+        <style type="text/css">
+            #sfondo {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
+        </style>
+        <script type="text/javascript" lang="javascript" src="../js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="yt_search.js"></script>
+        <script src="https://apis.google.com/js/client.js?onload=init"></script>
+        <script>
+        $(document).ready(function(){
+            $.get("../objects/barra.html", function(data) {
+                $("#barra").append(data);
+            });
+        });
+        </script>
+    </head>
+    <body class="text-center">
+        <!--Codice per lo SFONDO-->
+        <div id="sfondoarco">
+            <img src="../immagini/index.jpeg" id = "sfondo">
+        </div>
+
+        <!--NAVBAR-->
+        <div id="barra"></div>
+
+        <!--TITOLO della pagina-->
+        <header>
+            <img src="../immagini/mslogo.png" width="100" height="100" alt="">
+            <font color="white"><h1 class="w100 text-center font-weight-bold">
+                Search Film
+            </h1></font>         
+        </header>
+
+        <!--Codice per barra di RICERCA DEI VIDEO-->
+        <div class="row">
+            <div class="col-md-12 col-md-offset-3">
+                <form action="#">
+                    <p><input type="text" id="search" placeholder="Cerca qualcosa..." autocomplete="on" class="form-control" /></p>
+                    <p><input type="submit" value="Search" class="form-control btn btn-primary w100"></p>
+                </form>
+                <div id="results"></div>
+            </div>
+        </div>
+	</body>
+</html>

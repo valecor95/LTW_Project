@@ -13,7 +13,7 @@
         <script type="text/javascript" lang="javascript" src="../js/bootstrap.min.js"></script>
         <script type="text/javascript" lang="javascript" src="login.js"></script>
     </head>
-    <body class="text-center">
+    <body class="text-center" onload="inizializzaStorageUtenti();">
         <!--Immagine di sfondo-->
         <div id="sfondoarco">
             <img src="../immagini/index.jpeg" id = "sfondo">
@@ -22,7 +22,7 @@
         <!--Form per il Sign In-->
         <div id="accesso"  name="principale"  class="row">
             <div class="col-md-12 col-md-offset-3">
-                <form action="" class="form-signin" method="POST" name="login" onSubmit="return validaLoginForm()">
+                <form action="../paginaFilmVer2/film2.html" class="form-signin" method="post" id="login" name="formlogin" onSubmit="return signin();">
                     <img class="mb-3" src="../immagini/mslogo.png" alt="" width="auto" height="130"/>
                     <font><label class="h2 mb-3 font-weight-bold">Please Sign In</label></font>
                     <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/>
@@ -40,7 +40,7 @@
         <!--Form per il Sign Up-->
         <div id="registrazione"  name="principale" class="row">
             <div class="col-md-12 col-md-offset-3">
-                <form action="" class="form-signup" method="POST" name="signup" onSubmit="return validaSignUpForm()">
+                <form action="../paginaFilmVer2/film2.html" class="form-signup" method="post" id="signup" name="formsignup" onSubmit="return signup();">
                     <img class="mb-3" src="../immagini/mslogo.png" alt="" width="auto" height="130"/>
                     <font><label class="w100 h2 mb-3 font-weight-bold">Registrati</label></font>
                     <div id="divInfoBase" class="text-left font-weight-bold">
@@ -48,7 +48,7 @@
                         <input type="text" name="inputNickname" class="form-control" placeholder="NickName" required autofocus/>
                         <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/>
                         <input type="password" name="inputPassword" class="form-control" placeholder="Password" minlength="8" required/>
-                        <input type="password" name="inputConfPassword" class="form-control" placeholder="Confirm Password" onChange="return controllaPass()" required/>
+                        <input type="password" name="inputConfPassword" class="form-control" placeholder="Confirm Password" onChange="return controllaPass();" required/>
                     </div><br>
                     <div id="divDdn" class="text-left font-weight-bold">
                         <font><label for="cap">Data di nascita:</label></font>
@@ -56,7 +56,7 @@
                     </div><br>
                     <div id="divCap" class="text-left font-weight-bold">
                         <font><label for="cap">CAP:</label></font>
-                        <input type="text" class="form-control-sm" name="cap" size="5" maxlength="5" onChange="return controllaCAP()"/>
+                        <input type="text" class="form-control-sm" name="cap" size="5" maxlength="5" required onChange="return controllaCAP();"/>
                     </div><br>
                     <button class="btn btn-sm btn-standard btn-block" type="reset">Reset dati inseriti</button>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
