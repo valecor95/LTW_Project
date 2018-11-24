@@ -22,8 +22,7 @@ $(document).ready(function(){
                     success: function(data){
                         $(".list-group").empty();
                         for(var i = 0; i < maxres; i++){
-                            console.log(data.items[i].snippet.thumbnails);
-                            $("<li><img src=" + data.items[i].snippet.thumbnails.medium.url + "> " 
+							$("<li><img src=" + data.items[i].snippet.thumbnails.medium.url + "> " 
                                               + data.items[i].snippet.title + "" + "<input type='button' id=" 
                                               + data.items[i].id.videoId + " value='Play!' onclick='return PlayVideo(this.id);'>" 
                                               + "</li></br></br>").appendTo("#results");
