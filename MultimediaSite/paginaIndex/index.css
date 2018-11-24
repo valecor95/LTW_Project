@@ -6,15 +6,6 @@ body {
   padding: 0;
 }
 
-body {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
 /** Rende non selezionabile lo sfondo della pagina **/
 #sfondo{
     -webkit-user-select: none;
@@ -23,38 +14,11 @@ body {
     user-select: none;
 }
 
-div#testo-header{
-    width: 800px;
-    height: 200px;
-    width: 70%;
-    height: 70%;
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    margin-top: -100px;
-    margin-left: -100px;
-}
 
-div#imgsx{
-    width: 800px;
-    height: 200px;
-    width: 46.5%;
-    height: 46.5%;
-    position: absolute;
-    top: 49.7%;
-    left: 5.5%;
-    margin-top: -100px;
-    margin-left: -100px;
-}
+div#testo-header{margin-top: 2%;}
 
-div#imgdx{
-    width: 800px;
-    height: 200px;
-    width: 40%;
-    height: 40%;
-    position: absolute;
-    top: 49.5%;
-    right: 4%;
-    margin-top: -100px;
-    margin-left: -100px;
-}
+
+div#imgsx{margin-top: 10%;}
+
+div#imgdx{margin-top: 10%;}
+
