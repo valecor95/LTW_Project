@@ -35,10 +35,17 @@
                 },
                 events: {
                     'onReady': null,
-                    'onStateChange': null
+                    'onStateChange': ResetCurrentTimeAndReplay  //quando il video termina ricomincia da capo
                 }
         });
     };
+
+    function ResetCurrentTimeAndReplay(event){
+        if (event.data == 0 ){          //0 corrisponde a fine video
+            arraybuts[videoID] = 0;     //resetto a 0 il timing del video
+            event.target.playVideo();   //ricomincio il video in loop per evitare che appaiono i video correlati
+        }
+    }
     </script>
 </head>
 <body>

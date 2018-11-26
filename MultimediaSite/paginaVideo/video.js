@@ -1,12 +1,19 @@
 
-var APIkey = 'AIzaSyDGIo6ylsqkLqOt1skx2gjOeLI57DPaFz8';   //cambia con la tua api
+var APIkey = 'AIzaSyDGIo6ylsqkLqOt1skx2gjOeLI57DPaFz8';
 var maxres = 8;
+
+var arraybuts = '';//gestisco un array coppia (id, tempo del video)
 
 $(document).ready(function(){
     $.get("../objects/barra.html", function(data) {
         $("#barra").append(data);
     });
+    $("#myModal").on("hide.bs.modal", function () {    //salvo il tempo del player prima di stoppare il video e nascondere il modal
+        arraybuts[videoID] = player.getCurrentTime()   /*currentTime = player.getCurrentTime()*/;
+        player.stopVideo();
+    });
     $('#button1').click(function(){
+        arraybuts = new Array();
         currentId = '';
         currentTime = 0;
         jQuery.ajax({
@@ -26,6 +33,7 @@ $(document).ready(function(){
                                               + data.items[i].snippet.title + "" + "<input type='button' id=" 
                                               + data.items[i].id.videoId + " value='Play!' onclick='return PlayVideo(this.id);'>" 
                                               + "</li></br></br>").appendTo("#results");
+                        arraybuts[data.items[i].id.videoId] = 0;
                         }
                     },
                     error: function(error){
@@ -35,33 +43,35 @@ $(document).ready(function(){
     }); 
 });
 
-var currentId = '';
-var currentTime = 0;
-        
+//var previousId = '';
+//var currentTime = 0;
+var videoID = '';  
+
 function PlayVideo(id){
     
     $('#myModal').modal("show");
     //$('#player').css('display','block');  non serve più perche lo abbiamo inserito nel modal
-
-    var videoID=id;
-    if (currentId != id){
-        currentId = id;
+    /*
+    var videoID=id;                                             
+    if (previousId != id){                       //controllo se l'id del bottone cliccato è lo stesso del bottone precedente
+        previousId = id;                         //se no ricomincia il nuovo video da zero
         player.loadVideoById({videoId: videoID,
         startSeconds: 0,
         endSeconds: '',
         suggestedQuality: 'high'});
-    }
-    else{
+    }                                           
+    else{                                       //se sì ricomincia il video da dove lo avevo interrotto
         player.loadVideoById({videoId: videoID,
         startSeconds: currentTime,
         endSeconds: '',
         suggestedQuality: 'high'});
     }
-
-    $("#myModal").on("hide.bs.modal", function () {
-        currentTime = player.getCurrentTime();
-        player.stopVideo();
-    });
+    */
+    videoID = id;                           //attraverso l'array associativo arraybuts semplifico il codice
+    player.loadVideoById({videoId: videoID,
+        startSeconds: arraybuts[videoID],
+        endSeconds: '',
+        suggestedQuality: 'high'});
 }
 
 function RefreshSearch(){
