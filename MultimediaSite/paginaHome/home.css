@@ -21,3 +21,13 @@ div#imgsx{margin-top: 5%;}
 div#imgct{margin-top: 5%;}
 
 div#imgdx{margin-top: 5%;}
+
+.imgd:hover {
+  margin-top: -20px;
+}
+.imgc:hover {
+  margin-top: -20px;
+}
+.imgs:hover {
+  margin-top: -20px;
+}

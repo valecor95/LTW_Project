@@ -4,21 +4,6 @@ html,
 body {
   height: 100%;
 }
-/*
-body {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-*/
-/*
-#player{        non serve più perche lo abbiamo inserito nel modal
-  display: none;
-}
-*/
 
 li {margin: 3px; padding: 3px;}
 
@@ -38,3 +23,13 @@ li {margin: 3px; padding: 3px;}
  }
 
  .modal{background-color: #254061;}
+
+ .btn-primary { 
+  background: #952b2b; 
+  border-color: #957575; 
+  width: 20%;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus { 
+  background: #782b2b; 
+  border-color: #952b2b; 
+}
