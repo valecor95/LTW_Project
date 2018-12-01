@@ -25,7 +25,7 @@ $(function() {
         }); 
         // Eseguo la richiesta 
         request.execute(function(response) {
-              var results = response.result;
+            var results = response.result;
             $("#results").html("");
             $.each(results.items, function(index, item) {
                 $.get("yt_item.html", function(data) {

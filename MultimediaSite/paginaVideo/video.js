@@ -38,15 +38,17 @@ function ResearchItems(){
                     q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"), 
                     maxResults: maxres, 
                     part: 'snippet', 
-                    key: APIkey
+                    key: APIkey,
+                    type: "video"
                     }, { }),
                 success: function(data){
                     $(".list-group").empty();
+                    console.log(data);
                     for(var i = 0; i < maxres; i++){
-                        $("<li><img src=" + data.items[i].snippet.thumbnails.medium.url + "> " 
-                                          + data.items[i].snippet.title + "" + "<input type='button' id=" 
-                                          + data.items[i].id.videoId + " value='Play!' onclick='return PlayVideo(this.id);'>" 
-                                          + "</li></br></br>").appendTo("#results");
+                        $("<li class='list-group-item'><img src=" + data.items[i].snippet.thumbnails.medium.url 
+                                        + "> <a href='#' id=" + data.items[i].id.videoId +" onclick='return PlayVideo(this.id);'>"
+                                        + "<font color = 'black'>"
+                                        + data.items[i].snippet.title + "</font>" +"</a>").appendTo("#results");
                         arraybuts[data.items[i].id.videoId] = 0;
                     }
                 },

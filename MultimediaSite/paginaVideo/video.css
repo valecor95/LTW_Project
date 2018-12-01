@@ -5,12 +5,15 @@ body {
   height: 100%;
 }
 
-li {margin: 3px; padding: 3px;}
+li {
+  margin: 4px;
+  padding: 3px;
+}
 
 #result{
   position: absolute;
   width: 100%;
-  max-width:870px;
+  max-width:880px;
   cursor: pointer;
   overflow-y: auto;
   max-height: 400px;
@@ -32,4 +35,9 @@ li {margin: 3px; padding: 3px;}
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus { 
   background: #782b2b; 
   border-color: #952b2b; 
+}
+
+.list-group-item{
+  background-color: lightseagreen;
+  border-color: whitesmoke;
 }
