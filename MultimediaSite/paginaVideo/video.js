@@ -6,18 +6,18 @@ var arraybuts = '';//gestisco un array coppia (id, tempo del video) in questo mo
 
 $(document).ready(function(){
     
-    $.get("../objects/barra.html", function(data) {
+    $.get("../objects/barra.html", (data) => {
         $("#barra").append(data);
     });
     
-    $("#myModal").on("hide.bs.modal", function () {    //salvo il tempo del player prima di stoppare il video e nascondere il modal
+    $("#myModal").on("hide.bs.modal", () => {    //salvo il tempo del player prima di stoppare il video e nascondere il modal
         arraybuts[videoID] = player.getCurrentTime();
         player.stopVideo();
     });
     
     $('#button1').click(ResearchItems);
     
-    $('#search').keypress(function(e){
+    $('#search').keypress( (e) => {
         if (e.which == 13){
             ResearchItems();
         };
