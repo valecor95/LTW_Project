@@ -1,0 +1,43 @@
+html,
+
+/** Stili di default **/
+body {
+  height: 100%;
+}
+
+li {
+  margin: 4px;
+  padding: 3px;
+}
+
+#result{
+  position: absolute;
+  width: 100%;
+  max-width:880px;
+  cursor: pointer;
+  overflow-y: auto;
+  max-height: 400px;
+  box-sizing: border-box;
+  z-index: 1001;
+ }
+ 
+ .link-class:hover{
+  background-color:#f1f1f1;
+ }
+
+ .modal{background-color: #254061;}
+
+ .btn-primary { 
+  background: #952b2b; 
+  border-color: #957575; 
+  width: 20%;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus { 
+  background: #782b2b; 
+  border-color: #952b2b; 
+}
+
+.list-group-item{
+  background-color: lightseagreen;
+  border-color: whitesmoke;
+}
