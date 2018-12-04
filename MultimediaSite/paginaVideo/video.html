@@ -15,15 +15,14 @@
     </style>
     
     <script>
-      // 2. questo è il pezzo di codice che carica IFrame Player API in modo asincrono.
+        // 2. questo è il pezzo di codice che carica IFrame Player API in modo asincrono.
         var tag = document.createElement('script');
 
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        // 3. Questa funzione crea un <iframe> (e YouTube player)
-        //    dopo il download delle api.
+        // 3. Questa funzione crea un <iframe> (e YouTube player) dopo il download delle api.
         var player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
@@ -37,31 +36,33 @@
                     'onReady': null,
                     'onStateChange': ResetCurrentTimeAndReplay  //quando il video termina ricomincia da capo
                 }
-        });
-    };
+            });
+        };
 
-    function ResetCurrentTimeAndReplay(event){
-        if (event.data == 0 ){          //0 corrisponde a fine video
-            arraybuts[videoID] = 0;     //resetto a 0 il timing del video
-            event.target.playVideo();   //ricomincio il video in loop per evitare che appaiono i video correlati
+        function ResetCurrentTimeAndReplay(event){
+            if (event.data == 0 ){          //0 corrisponde a fine video
+                arraybuts[videoID] = 0;     //resetto a 0 il timing del video
+                event.target.playVideo();   //ricomincio il video in loop per evitare che appaiono i video correlati
+            }
         }
-    }
     </script>
 </head>
 <body onload="$('#search').val('');">
+    <!--Codice per lo SFONDO-->
     <div id="sfondoarco">
         <img src="../immagini/index.jpeg" id = "sfondo">
     </div>
 
+    <!--NAVBAR-->
     <div id="barra"></div>
     
     <br/><br/>
     <div class="container" align="center" class="row" id="container">
         <div class="col-md-12 col-md-offset-3">
             <img class="mb-3" src="../immagini/mslogo.png" alt="" width="100" height="100"/>
-            <font color="white"><h1 class="w100 text-center font-weight-bold">
-                Search Video
-            </h1></font>
+            <font color="white">
+                <h1 class="w100 text-center font-weight-bold">Search Video</h1>
+            </font>
             <div id="searchdiv" class="col-md-8 col-md-offset-3">
                 <input type="text" name="search" id="search" placeholder="Search Videos" class="form-control">
                 <br/>
@@ -74,16 +75,20 @@
             </div>
             <br/><br/>
 
-            
+            <!--MODAL per guardare il video-->
             <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
-                        <div class="modal-header" align="center">
-                            <button type="button" class="close col-md-1" data-dismiss="modal">&times;</button>
-                            <img class="mb-3" src="../immagini/mslogo.png" alt="" width="40" height="40"/>
-                            <font color="#254061" class="col-md-11">
-                                <h4 class="modal-title font-weight-bold">YOUR VIDEO</h4>
-                            </font>
+                        <div class="modal-header">
+                            <div class="col-md-12">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <font color="white">
+                                    <h4 class="modal-title font-weight-bold">
+                                        <img class="mb-3" src="../immagini/mslogo.png" alt="" width="40" height="40"/>
+                                        Your Video
+                                    </h4>
+                                </font>
+                            </div>
                         </div>
                         <div class="modal-body">
                             <div id='player' align="center" class="col-md-12 col-md-offset-3"></div>
@@ -91,11 +96,10 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" onclick = "player.stopVideo();" data-dismiss="modal">Close</button>
                         </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <br/>
+    </div><br/>
 </body>
 </html>

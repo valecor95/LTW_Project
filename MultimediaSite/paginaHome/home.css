@@ -14,6 +14,7 @@ body {
     user-select: none;
 }
 
+/** Margini delle immagini **/
 div#testo-header{margin-top: 2%;}
 
 div#imgsx{margin-top: 5%;}
@@ -22,6 +23,7 @@ div#imgct{margin-top: 5%;}
 
 div#imgdx{margin-top: 5%;}
 
+/** Stili per fare alzare le immagini al passaggio del mouse **/
 .imgd:hover {
   margin-top: -20px;
 }

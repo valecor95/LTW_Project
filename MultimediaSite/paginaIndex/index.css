@@ -14,9 +14,8 @@ body {
     user-select: none;
 }
 
-
+/** Stili per i margini di testo e header **/
 div#testo-header{margin-top: 2%;}
-
 
 div#imgsx{margin-top: 10%;}
 

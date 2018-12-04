@@ -1,6 +1,10 @@
+/*********************************************************************************************/
+/*                          FUNZIONI PER LA GESTIONE DEI VIDEO                               */
+/*********************************************************************************************/
 
 var APIkey = 'AIzaSyDGIo6ylsqkLqOt1skx2gjOeLI57DPaFz8';
 var maxres = 8;
+
 var arraybuts = '';//gestisco un array coppia (id, tempo del video) in questo modo tengo traccia di ogni riproduzione
                    //in modo che i video non ricominciano sempre da capo
 
@@ -28,6 +32,7 @@ $(document).ready(function(){
     });
 });
 
+/** Ricerca i video cercati sfruttando le api di youtube e mette i risultati in una lista **/
 function ResearchItems(){
     arraybuts = new Array();
     jQuery.ajax({
@@ -60,6 +65,7 @@ function ResearchItems(){
 
 var videoID = '';  
 
+/** Fa partire la riproduzione del video sul modal **/
 function PlayVideo(id){
     $('#myModal').modal("show");
     videoID = id;                           //attraverso l'array associativo arraybuts semplifico il codice
@@ -69,10 +75,8 @@ function PlayVideo(id){
         suggestedQuality: 'high'});
 }
 
+/** Resetta la ricerca dei video **/
 function RefreshSearch(){
     $(".list-group").empty();
     $('#search').val('');
 }
-
-
-

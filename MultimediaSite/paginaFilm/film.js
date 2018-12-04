@@ -1,5 +1,10 @@
+/*********************************************************************************************/
+/*                          FUNZIONI PER LA GESTIONE DEI FILM                                */
+/*********************************************************************************************/
+
 var API_KEY = "AIzaSyDH_WfOaLLq0vE38h_WUVt5deu-R3IvENQ";
 
+/** Funzione ausiliaria per rendere il titolo leggibile **/
 function tplawesome(e,t){
     res=e;
     for(var n=0;n<t.length;n++){
@@ -10,6 +15,7 @@ function tplawesome(e,t){
     return res;
 }
 
+/** Esegue la richiesta da fare a youtube secondo i parametri di ricerca **/
 $(function() {
     $("form").on("submit", function(e) {
         e.preventDefault();
@@ -40,12 +46,12 @@ $(function() {
     $(window).on("resize", resetVideoHeight);
 });
 
-// Questa Funzione serve per i frame responsive
+/** Questa Funzione serve per rendere i frame responsive **/
 function resetVideoHeight() {
     $(".video").css("height", $("#results").width() * 9/16);
 }
 
-// Questa funzione setta l'API di youtube secondo la nostra chiave API
+/** Questa funzione setta l'API di youtube secondo la nostra chiave API **/
 function init() {
     gapi.client.setApiKey(API_KEY);
     gapi.client.load("youtube", "v3", function() {});
