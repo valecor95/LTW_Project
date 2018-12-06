@@ -34,9 +34,8 @@ $(document).ready(function(){
 
 var listaAudio = '';
 var urlItunes = 'https://itunes.apple.com/search?term=';
-var urlGroove = 'http://groovesharks.org/?s=';
 
-/** Ricerca gli auduo secondo i parametri di ricerca inseriti nella barra **/
+/** Ricerca gli audio secondo i parametri di ricerca inseriti nella barra **/
 function ResearchAudios(){
     //Settaggio della richiesta
     $(".list-group").empty();
