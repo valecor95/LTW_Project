@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,"/>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="home.css" rel="stylesheet"/>
+    <link href="recensioni.css" rel="stylesheet"/>
     <style type="text/css">
         #sfondo {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
     </style>
-    <script src="home.js"></script>
+    <script src="recensioni.js"></script>
     <script type="text/javascript" lang="javascript" src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap.min.jQuery.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
@@ -38,32 +38,16 @@
                 <img src="../immagini/mslogo.png" width="100" height="100">
                 <font color="white" size="7">
                 <h1 class="font-weight-bold">MultimediaSite</h1>
-                <font size="5" face="Helvetica">
-                <p>Vuoi ascoltare una <font color="blue">Canzone</font>, vedere un <font color="green">Film</font> o un <font color="red">Video </font> qualsiasi dal Web?</p>
-                </font>
                 </font>
             </div>
         </div>
 
-        <!--IMMAGINI-->
-        <div id="ImgZone" name="ImgZone" class="row">
-            <div id="imgdx" class="col-md-4">
-                <font color="#254061" size="5"><h1 class="font-weight-bold">Songs</h1></font>
-                <a href="../paginaAudio/audio.html">
-                    <img class="rounded-circle imgd" src="../immagini/My-music-icon.png">
-                </a>
-            </div>
-            <div id="imgsx" class="col-md-4">
-                <font color="#0b8906" size="5"><h1 class="font-weight-bold">Movies</h1></font>
-                <a href="../paginaFilm/film.html">
-                    <img class="rounded-circle imgs" src="../immagini/My-movies-icon.png">
-                </a>
-            </div>
-            <div id="imgct" class="col-md-4">
-                <font color="#c20000" size="5"><h1 class="font-weight-bold">Videos</h1></font>
-                <a href="../paginaVideo/video.html">
-                    <img class="imgc" src="../immagini/MyPC-icon.png">
-                </a>
+        <!--FORM PER LE RECENSIONI-->
+        <div id="recensioni" class="row">
+            <div class="col-md-12">
+                <form action="recensioni.php" method="POST" name="recForm">
+                    <button name="showRec" class="btn btn-primary" type="submit">Show</button>
+                </form>
             </div>
         </div>
     </body>
