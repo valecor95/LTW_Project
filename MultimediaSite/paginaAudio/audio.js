@@ -30,12 +30,14 @@ $(document).ready(function(){
 });
 
 var listaAudio = '';
+var urlItunes = 'https://itunes.apple.com/search?term=';
+var urlGroove = 'http://groovesharks.org/?s=';
 
 function ResearchAudios(){
     
     $(".list-group").empty();
     listaAudio = new Array();
-    let endpoint = 'https://itunes.apple.com/search?term=' + $('#search').val();
+    let endpoint = urlItunes + $('#search').val();
 	var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = GestisciItems;
     xhr.open('get', endpoint, true);
