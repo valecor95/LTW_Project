@@ -1,3 +1,6 @@
+/*********************************************************************************************/
+/*                          FUNZIONI PER LA GESTIONE DEGLI AUDIO                             */
+/*********************************************************************************************/
 
 $(document).ready(function(){
     
@@ -33,8 +36,9 @@ var listaAudio = '';
 var urlItunes = 'https://itunes.apple.com/search?term=';
 var urlGroove = 'http://groovesharks.org/?s=';
 
+/** Ricerca gli auduo secondo i parametri di ricerca inseriti nella barra **/
 function ResearchAudios(){
-    
+    //Settaggio della richiesta
     $(".list-group").empty();
     listaAudio = new Array();
     let endpoint = urlItunes + $('#search').val();
@@ -42,7 +46,8 @@ function ResearchAudios(){
     xhr.onreadystatechange = GestisciItems;
     xhr.open('get', endpoint, true);
     xhr.send();
-		
+    
+    // Gestione della risposta
 	function GestisciItems(e){
 		if (e.target.readyState == 4 && e.target.status == 200){
 				var data = JSON.parse(e.target.responseText);
@@ -66,6 +71,7 @@ function ResearchAudios(){
 
 var currentAudio = 0;
 
+/** Fa partire il file audio sul modal creato da noi **/
 function playAudio(pos){
     currentAudio = parseInt(pos);
     $('#myModal').modal("show");
@@ -75,10 +81,8 @@ function playAudio(pos){
     document.getElementById('myAudio').play();
 }
 
+/** Azzera la ricerca pulendo la lista degli audio precedenti e la barra di ricerca **/
 function RefreshSearch(){
     $(".list-group").empty();
     $('#search').val('');
 }
-
-
-
