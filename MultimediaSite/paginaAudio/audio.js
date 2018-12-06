@@ -34,6 +34,7 @@ $(document).ready(function(){
 
 var listaAudio = '';
 var urlItunes = 'https://itunes.apple.com/search?term=';
+var data=null;
 
 /** Ricerca gli audio secondo i parametri di ricerca inseriti nella barra **/
 function ResearchAudios(){
@@ -49,7 +50,7 @@ function ResearchAudios(){
     // Gestione della risposta
 	function GestisciItems(e){
 		if (e.target.readyState == 4 && e.target.status == 200){
-				var data = JSON.parse(e.target.responseText);
+				data = JSON.parse(e.target.responseText);
                 console.log(data);
                 for (var i=0; i<data.resultCount; i++){
                     if (data.results[i].wrapperType != "track")
@@ -74,6 +75,8 @@ var currentAudio = 0;
 function playAudio(pos){
     currentAudio = parseInt(pos);
     $('#myModal').modal("show");
+    document.getElementById('imgaudio').setAttribute('src', data.results[pos].artworkUrl100);
+    document.getElementById('titoloaudio').innerHTML = data.results[pos].artistName + " - " + data.results[pos].trackCensoredName;
     document.getElementById('myAudio').setAttribute('src', listaAudio[pos][0] + '#t=' + listaAudio[pos][1]);
     var volume = document.getElementById('myAudio').volume;
     document.getElementById('myAudio').volume = volume/2;

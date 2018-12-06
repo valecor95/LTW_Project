@@ -87,24 +87,30 @@ function turninvisible(){
  *  2) Crea un nuovo oggetto JSON con i dati ricevuti dall'input
  *  3) Inserisce l'oggetto appena creto nel localStorage e nel sessionStorage **/
 function signup(){
-    var u = JSON.parse(localStorage.utenti);
-    var l=u.length;
-    for (i=0;i<l;i++){
-        if(u[i].nickname == document.getElementById("signup").inputNickname.value){
-            alert("Username già inserito");
-            return false;
+    if(validaSignUpForm()){
+        var u = JSON.parse(localStorage.utenti);
+        var l=u.length;
+        for (i=0;i<l;i++){
+            if(u[i].nickname == document.getElementById("signup").inputNickname.value){
+                alert("Username già inserito");
+                return false;
+            }
         }
+
+        var s= { nickname:document.getElementById("signup").inputNickname.value,
+                 email:document.getElementById("signup").inputEmail.value,
+                 password:document.getElementById("signup").inputPassword.value
+        };
+
+        u[l]=s;
+        localStorage.utenti=JSON.stringify(u);
+        sessionStorage.setItem("email",s["email"]);
+        return true;
     }
-
-    var s= { nickname:document.getElementById("signup").inputNickname.value,
-             email:document.getElementById("signup").inputEmail.value,
-             password:document.getElementById("signup").inputPassword.value
-    };
-
-    u[l]=s;
-    localStorage.utenti=JSON.stringify(u);
-    sessionStorage.setItem("email",s["email"]);
-    return true;                    
+    else{ 
+        alert('Ricompila form');
+        return false;
+    }
 }
 
 /** Inizializza il localStorage e il sessionStorage se non sono già stati creati**/
