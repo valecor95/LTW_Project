@@ -37,3 +37,16 @@ $(document).ready(function(){
         document.submitRecForm.voto.value = 5;
     });
 });
+
+function checkUsername(){
+    var u = JSON.parse(localStorage.utenti);
+    var l = u.length;
+    var user = document.submitRecForm.name.value;
+    for (i=0;i<l;i++){
+        if((u[i].nickname == user)) {
+            return true;
+        }
+    }
+    alert("Utente non registrato");
+    return false;
+}

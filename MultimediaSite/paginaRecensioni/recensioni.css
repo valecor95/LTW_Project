@@ -25,6 +25,10 @@ form {
 }
 
 h4{ color: white; }
+h3{ 
+  color: #952b2b;
+  font-weight: bold;
+}
 
 hr{
   color: black;
@@ -32,3 +36,11 @@ hr{
 }
 
 #voto{ display:none; }
+.table{
+  background-color: white;
+  width: 50%;
+}
+
+.jumbotron{
+  width: 30%;
+}

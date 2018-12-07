@@ -41,11 +41,12 @@
                 $query = 'SELECT * FROM recensioni';
                 $result = pg_query($query) or die ('Query failed: '.pg_last_error());
                 //Printing result
-                echo "<table align='center'>\n";
+                echo "<table border=1 cellpadding=2 class='table table-striped' align='center'>\n";
+                echo "\t\t<tr><td align='center'><h3>USER</h3><td align='center'><h3>VOTO</h3><td align='center'><h3>RECENSIONE</h3></td></tr>";
                 while($line = pg_fetch_array($result, null, PGSQL_ASSOC)){
                     echo "\t<tr>\n";
                     foreach($line as $col_value){
-                        echo "\t\t<td><h1>$col_value</h1></td>";
+                        echo "\t\t<td><h5>$col_value</h5></td>";
                     }
                     echo"\t</tr>\n";
                 }

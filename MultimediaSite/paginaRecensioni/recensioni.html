@@ -39,7 +39,7 @@
         <!--FORM PER LE RECENSIONI-->
         <div id="recensioni" class="row">
             <div class="col-md-12">
-                <form action="submit_recensioni.php" method="POST" name="submitRecForm">
+                <form action="submit_recensioni.php" method="POST" name="submitRecForm" onsubmit="return checkUsername();">
                     <div class="form-group">
                         <h4>Insert your Username:</h4>
                         <input type="text" class="form-control" name="name" placeholder="Username"><br>
@@ -65,13 +65,13 @@
                     </div><br>
                     <div class="form-group">
                         <h4>Rilascia una recensione</h4>
-                        <textarea class="form-control" name="details" rows="8" maxlength="255" placeholder="Recensisci (max 255 caratteri)..."></textarea><br>
+                        <textarea class="form-control" name="details" rows="8" maxlength="255" placeholder="Recensisci (Max 255 caratteri)..."></textarea><br>
                         <button name="subRecForm" type="submit" class="btn btn-block btn-primary">Invia Recensione</button>
                     </div>
-                    <hr size="3">
+                    <hr>
                 </form>
                 <form action="show_recensioni.php" method="POST" name="showRecForm">
-                    <button type ="submit" name="showRec" class="btn btn-block btn-success">Guarda tutte le recensioni</button>
+                    <button type ="submit" name="showRec" class="btn btn-block btn-danger">Guarda tutte le recensioni</button>
                 </form>
             </div>
         </div>

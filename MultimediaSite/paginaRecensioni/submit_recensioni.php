@@ -45,10 +45,13 @@
                 $data=pg_query_params($dbconn,$q1,array($nome,$voto,$details));
                 if($data){
                     //header("Location: registrationCompleted.html");
-                    echo "<h1> Grazie per averci invito una recensione <br/></h1>";
-                    echo "<a href=../paginaHome/home.html> Premi qui
-                    </a>
-                    per ritornare alla Home Page";
+                    echo "<div align='center'>
+                    <div class='jumbotron'>
+                    <h1>Grazie!</h1>
+                    <p>Il tuo parere è importante per noi!</p>
+                    <p><a class='btn btn-primary btn-lg' href='../paginaHome/home.html' role='button'>
+                    Torna alla home</a></p>
+                    </div></div>";
                 }
             }
 
