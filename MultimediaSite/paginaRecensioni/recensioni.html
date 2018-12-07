@@ -1,27 +1,21 @@
 <!doctype html>
 <html type= text/html charset=utf-8>
     <head>
-    <title>MultimediaSite Home</title>
+    <title>MultimediaSite Recensioni</title>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1,"/>
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script src="../js/bootstrap.min.jQuery.js"></script>
+    <link rel="stylesheet" href="../js/bootstrap.min.ajax.js" />
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="recensioni.js"></script>
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
     <link href="recensioni.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
     <style type="text/css">
         #sfondo {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
     </style>
-    <script src="recensioni.js"></script>
-    <script type="text/javascript" lang="javascript" src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootstrap.min.jQuery.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Carica la barra di navigazione
-        $(document).ready(function(){
-            $.get("../objects/barra.html", function(data) {
-                $("#barra").append(data);
-            });
-        });
-    </script>
     </head>
     <body class="text-center">
         <!--Codice per lo SFONDO-->
@@ -45,8 +39,39 @@
         <!--FORM PER LE RECENSIONI-->
         <div id="recensioni" class="row">
             <div class="col-md-12">
-                <form action="recensioni.php" method="GET" name="recForm">
-                    <button name="showRec" class="btn btn-primary" type="submit">Show</button>
+                <form action="submit_recensioni.php" method="POST" name="submitRecForm">
+                    <div class="form-group">
+                        <h4>Insert your Username:</h4>
+                        <input type="text" class="form-control" name="name" placeholder="Username"><br>
+                    </div>    
+                    <div class="form-group" id="voteDiv">
+                        <h4>Dai un voto al nostro sito:</h4>    
+                        <span id="s1" style="font-size: 3em;">
+                            <i class="fa fa-star"></i>
+                        </span>
+                        <span id="s2" style="font-size: 3em;">
+                            <i class="fa fa-star"></i>
+                        </span>
+                        <span id="s3" style="font-size: 3em;">
+                            <i class="fa fa-star"></i>
+                        </span>
+                        <span id="s4" style="font-size: 3em;">
+                            <i class="fa fa-star"></i>
+                        </span>
+                        <span id="s5" style="font-size: 3em;">
+                            <i class="fa fa-star"></i>
+                        </span>
+                        <input type="number" id="voto" name="voto" value="">
+                    </div><br>
+                    <div class="form-group">
+                        <h4>Rilascia una recensione</h4>
+                        <textarea class="form-control" name="details" rows="8" maxlength="255" placeholder="Recensisci (max 255 caratteri)..."></textarea><br>
+                        <button name="subRecForm" type="submit" class="btn btn-block btn-primary">Invia Recensione</button>
+                    </div>
+                    <hr size="3">
+                </form>
+                <form action="show_recensioni.php" method="POST" name="showRecForm">
+                    <button type ="submit" name="showRec" class="btn btn-block btn-success">Guarda tutte le recensioni</button>
                 </form>
             </div>
         </div>
