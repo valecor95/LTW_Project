@@ -99,7 +99,8 @@ function signup(){
 
         var s= { nickname:document.getElementById("signup").inputNickname.value,
                  email:document.getElementById("signup").inputEmail.value,
-                 password:document.getElementById("signup").inputPassword.value
+                 password:document.getElementById("signup").inputPassword.value,
+                 recensioni: 0
         };
 
         u[l]=s;

@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../js/bootstrap.min.ajax.js" />
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
     <link href="recensioni.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <style type="text/css">
         #sfondo {position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;}
     </style>
@@ -41,12 +43,14 @@
                 $query = 'SELECT * FROM recensioni';
                 $result = pg_query($query) or die ('Query failed: '.pg_last_error());
                 //Printing result
-                echo "<table border=1 cellpadding=2 class='table table-striped' align='center'>\n";
-                echo "\t\t<tr><td align='center'><h3>USER</h3><td align='center'><h3>VOTO</h3><td align='center'><h3>RECENSIONE</h3></td></tr>";
+                echo "<table class='table table-striped' align='center'>\n";
+                echo "\t\t<tr class='bg-info'><td align='center'><h5><span style='font-size: 1em;''><i class='fa fa-address-card'></i></span> User</h5></td>
+                <td align='center'><h5><span style='font-size: 1em;''><i class='fa fa-star'></i></span> Voto</h5></td>
+                <td align='center'><h5><span style='font-size: 1em;''><i class='fa fa-comment'></i></i></span> Recensione</h5></td></tr>";
                 while($line = pg_fetch_array($result, null, PGSQL_ASSOC)){
                     echo "\t<tr>\n";
                     foreach($line as $col_value){
-                        echo "\t\t<td><h5>$col_value</h5></td>";
+                        echo "\t\t<td><h6>$col_value</h6></td>";
                     }
                     echo"\t</tr>\n";
                 }

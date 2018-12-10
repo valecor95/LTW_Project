@@ -22,7 +22,7 @@
         <!--Form per il SIGN IN-->
         <div id="accesso"  name="principale"  class="row">
             <div class="col-md-12 col-md-offset-3">
-                <form action="../paginaHome/home.html" class="form-signin" method="get" id="login" name="formlogin" onSubmit="return signin();">
+                <form action="../paginaHome/home.html" class="form-signin" method="post" id="login" name="formlogin" onSubmit="return signin();">
                     <img class="mb-3" src="../immagini/mslogo.png" alt="" width="auto" height="130"/>
                     <font><label class="h2 mb-3 font-weight-bold">Please Sign In</label></font>
                     <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/>
@@ -40,7 +40,7 @@
         <!--Form per il SIGN UP-->
         <div id="registrazione"  name="principale" class="row">
             <div class="col-md-12 col-md-offset-3">
-                <form action="../paginaHome/home.html" class="form-signup" method="get" id="signup" name="formsignup" onSubmit="return signup();">
+                <form action="../paginaHome/home.html" class="form-signup" method="post" id="signup" name="formsignup" onSubmit="return signup();">
                     <img class="mb-3" src="../immagini/mslogo.png" alt="" width="auto" height="130"/>
                     <font><label class="w100 h2 mb-3 font-weight-bold">Registrati</label></font>
                     <div id="divInfoBase" class="text-left font-weight-bold">
