@@ -51,7 +51,10 @@ function ResearchAudios(){
 	function GestisciItems(e){
 		if (e.target.readyState == 4 && e.target.status == 200){
 				data = JSON.parse(e.target.responseText);
-                console.log(data);
+                if (data.resultCount == 0){
+                    $("<li class='list-group-item'><font color = 'black'>NOT FOUND, TRY SOMETHING ELSE</font>").appendTo("#results");
+                    return;
+                }
                 for (var i=0; i<data.resultCount; i++){
                     if (data.results[i].wrapperType != "track")
                         continue;
