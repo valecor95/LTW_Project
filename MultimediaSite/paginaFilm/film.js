@@ -33,6 +33,10 @@ $(function() {
         request.execute(function(response) {
             var results = response.result;
             $("#results").html("");
+            if (results.items.length == 0){
+                $("#results").append("<font color = 'black'>NOT FOUND, TRY SOMETHING ELSE</font>");
+                return;
+            }
             $.each(results.items, function(index, item) {
                 $.get("yt_item.html", function(data) {
                     $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
