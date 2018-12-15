@@ -49,6 +49,10 @@ function ResearchItems(){
                 success: function(data){
                     $(".list-group").empty();
                     console.log(data);
+                    if(data.items.length == 0){
+                        $("<li class='list-group-item'><font color = 'black'>NOT FOUND, TRY SOMETHING ELSE</font>").appendTo("#results");
+                        return;
+                    }
                     for(var i = 0; i < maxres; i++){
                         $("<li class='list-group-item'><img src=" + data.items[i].snippet.thumbnails.medium.url 
                                         + "> <a href='#' id=" + data.items[i].id.videoId +" onclick='return PlayVideo(this.id);'>"
