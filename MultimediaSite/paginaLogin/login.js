@@ -14,20 +14,11 @@ function signin(){
     for (i=0;i<l;i++){
         if((u[i].email == email) && (u[i].password == password)) {
             sessionStorage.setItem("email",u[i].email);
-            validaLoginForm();
             return true;
         }
     }
     alert("Utente non registrato");
     return false;
-}
-
-/** Esegue tutti i controlli prima di validare la LOGIN form. Viene eseguita al submit **/
-function validaLoginForm(){
-    if(document.formlogin.remember.checked)
-        window.alert("Hai scelto di ricordarti per i prossimi accessi");
-    else
-        window.alert("Hai scelto di non ricordarti per i prossimi accessi");
 }
 
 /** Fa apparire dinamicamente la form di sign-up e scomparire quella di sign-in **/
