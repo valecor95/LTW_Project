@@ -13,6 +13,7 @@ function signin(){
     var password = document.getElementById("login").inputPassword.value;
     for (i=0;i<l;i++){
         if((u[i].email == email) && (u[i].password == password)) {
+            localStorage.utentecorrente = u[i].nickname;
             sessionStorage.setItem("email",u[i].email);
             return true;
         }
@@ -96,6 +97,7 @@ function signup(){
 
         u[l]=s;
         localStorage.utenti=JSON.stringify(u);
+        localStorage.utentecorrente = document.getElementById("signup").inputNickname.value;
         sessionStorage.setItem("email",s["email"]);
         return true;
     }
@@ -112,5 +114,8 @@ function inizializzaStorageUtenti(){
     }
     if (typeof(sessionStorage) == "undefined") {
         sessionStorage="[]";
+    }
+    if (typeof(localStorage.utentecorrente) == "undefined"){
+        localStorage.utentecorrente = '';
     }
 }
