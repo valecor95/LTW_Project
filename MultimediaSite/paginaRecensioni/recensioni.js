@@ -52,11 +52,11 @@ function checkUsername(){
     var l = u.length;
     var user = document.submitRecForm.name.value;
     for (i=0;i<l;i++){
-        if((u[i].nickname == user)) {
+        if(u[i].nickname == user && u[i].nickname == localStorage.utentecorrente) {
             return true;
         }
     }
-    alert("Utente non registrato");
+    alert("Username non corrispondente all'utente corrente");
     return false;
 }
 
