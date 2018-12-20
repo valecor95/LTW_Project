@@ -35,7 +35,7 @@
             </div>
         </div>
         <?php
-            $dbconn = pg_connect("host=localhost port=5432 dbname=multimediasite user=postgres password=biar2018") or die('Could not connect: ' . pg_last_error());
+            $dbconn = pg_connect("host=localhost port=5432 dbname=multimediasite user=postgres password=postgres") or die('Could not connect: ' . pg_last_error());
             if(!(isset($_POST['showRec']))){
                 header("Location: recensioni.html");
             }

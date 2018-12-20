@@ -1,4 +1,7 @@
 html,
+body {
+    height: 100%;
+}
 /** Rende non selezionabile lo sfondo della pagina **/
 #sfondo{
     -webkit-user-select: none;
