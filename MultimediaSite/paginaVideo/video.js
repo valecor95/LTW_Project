@@ -20,7 +20,7 @@ $(document).ready(function(){
     });
     
     $('#button1').click(ResearchItems);
-    
+
     $('#search').keypress( (e) => {
         if (e.which == 13){
             ResearchItems();
@@ -83,4 +83,33 @@ function PlayVideo(id){
 function RefreshSearch(){
     $(".list-group").empty();
     $('#search').val('');
+}
+
+function DownloadVideo(){
+    window.alert("Wait!!! Watch the video until download is finished");
+    /*$.ajax({
+        type: "post",
+        crossDomain: true,
+        dataType: 'jsonp',
+        url: 'http://127.0.0.1:1337/youtube',
+        data: 'https://www.youtube.com/watch?v=' + videoID,
+        success: function(msg)
+        {
+          window.alert(JSON.stringify(msg));
+        },
+        error: function()
+        {
+          window.alert("Chiamata fallita, si prega di riprovare...");
+        }
+    });
+    */
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if (this.status == 200 && this.readyState == 4){
+            window.alert("Il video è pronto");
+            console.log(this.responseText);
+        }
+    }  
+    xhr.open('post', 'http://127.0.0.1:1337/youtube', true);
+    xhr.send('http://www.youtube.com/watch?v=' + videoID);
 }
