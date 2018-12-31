@@ -9,7 +9,7 @@ var arraybuts = '';//gestisco un array coppia (id, tempo del video) in questo mo
                    //in modo che i video non ricominciano sempre da capo
 
 $(document).ready(function(){
-    
+
     $.get("../objects/barra.html", (data) => {
         $("#barra").append(data);
     });
@@ -85,31 +85,32 @@ function RefreshSearch(){
     $('#search').val('');
 }
 
+var _OBJECT_URL;
+
 function DownloadVideo(){
-    window.alert("Wait!!! Watch the video until download is finished");
-    /*$.ajax({
-        type: "post",
-        crossDomain: true,
-        dataType: 'jsonp',
-        url: 'http://127.0.0.1:1337/youtube',
-        data: 'https://www.youtube.com/watch?v=' + videoID,
-        success: function(msg)
-        {
-          window.alert(JSON.stringify(msg));
-        },
-        error: function()
-        {
-          window.alert("Chiamata fallita, si prega di riprovare...");
-        }
-    });
-    */
+    window.alert("Wait few seconds");
+    
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
         if (this.status == 200 && this.readyState == 4){
-            window.alert("Il video è pronto");
-            console.log(this.responseText);
+            console.log(JSON.stringify(this.response));
+            window.alert("la risorsa è arrivata, attendere l' apertura del link");
+            var blob = new Blob([this.response], {type: 'video/mp4'});
+            let a = document.createElement("a");
+            a.style = "display: none";
+            document.body.appendChild(a);
+            //Create a DOMString representing the blob and point the link element towards it
+            let url = window.URL.createObjectURL(blob);
+            a.href = url;
+            a.download = videoID;
+            //programatically click the link to trigger the download
+            a.click();
+            //release the reference to the file by revoking the Object URL
+            window.URL.revokeObjectURL(url);
         }
-    }  
+    } 
+
+    xhr.responseType = 'blob';
     xhr.open('post', 'http://127.0.0.1:1337/youtube', true);
     xhr.send('http://www.youtube.com/watch?v=' + videoID);
 }
