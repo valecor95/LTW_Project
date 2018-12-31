@@ -1,0 +1,12 @@
+{
+  "name": "Testing FS",
+  "manifest_version":2,
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches":["*://*.google.com/*"],
+      "js":["script.js"]
+    }
+  ],
+  "permissions": ["fileSystem"]
+}
