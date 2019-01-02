@@ -3,6 +3,9 @@ const youtubedl = require('youtube-dl');
 const express = require('express');
 const server = express();
 
+//creo un'applicazione express per gestire in modo più semplice il download sul client
+//e tramite il modulo youtube-dl scarico il video sfruttando l'API.
+
 server.post('/youtube', (req, res) => {
     let body = '';
     
