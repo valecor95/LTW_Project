@@ -88,7 +88,7 @@ function RefreshSearch(){
 var _OBJECT_URL;
 
 function DownloadVideo(){
-    window.alert("Wait few seconds");
+    window.alert("Attendere...");
     
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
