@@ -6,7 +6,7 @@ var APIkey = 'AIzaSyDGIo6ylsqkLqOt1skx2gjOeLI57DPaFz8';
 var maxres = 8;
 
 var arraybuts = '';//gestisco un array coppia (id, tempo del video) in questo modo tengo traccia di ogni riproduzione
-                   //in modo che i video non ricominciano sempre da capo
+                   //in modo che i video non ricominciano sempre da capo.
 
 $(document).ready(function(){
 
@@ -14,7 +14,7 @@ $(document).ready(function(){
         $("#barra").append(data);
     });
     
-    $("#myModal").on("hide.bs.modal", () => {    //salvo il tempo del player prima di stoppare il video e nascondere il modal
+    $("#myModal").on("hide.bs.modal", () => {    //salvo il tempo del player prima di stoppare il video e nascondere il modal.
         arraybuts[videoID] = player.getCurrentTime();
         player.stopVideo();
     });
@@ -72,7 +72,7 @@ var videoID = '';
 /** Fa partire la riproduzione del video sul modal **/
 function PlayVideo(id){
     $('#myModal').modal("show");
-    videoID = id;                           //attraverso l'array associativo arraybuts semplifico il codice
+    videoID = id;                           //attraverso l'array associativo arraybuts semplifico il codice.
     player.loadVideoById({videoId: videoID,
         startSeconds: arraybuts[videoID],
         endSeconds: '',
@@ -99,13 +99,13 @@ function DownloadVideo(){
             let a = document.createElement("a");
             a.style = "display: none";
             document.body.appendChild(a);
-            //Create a DOMString representing the blob and point the link element towards it
+            //si crea un DOMstring che rappresenta il blob e si punta il link su di esso.
             let url = window.URL.createObjectURL(blob);
             a.href = url;
             a.download = videoID;
-            //programatically click the link to trigger the download
+            //si clicca sul collegamento per avviare il download.
             a.click();
-            //release the reference to the file by revoking the Object URL
+            //si rilascia il riferimento al file revocando l'url dell'oggetto.
             window.URL.revokeObjectURL(url);
         }
     } 
